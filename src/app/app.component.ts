@@ -10,10 +10,11 @@ export class AppComponent {
 
   title = 'change-detection';
 
-  time: number;
+  expTime = Date.now() + 5000;
 
-  constructor(
-  ) {
-    setInterval(() => this.time = Date.now(), 1);
+  isAuthorized(): boolean {
+    // if we have some hard calculation our app will explode because function will run in every changedetection cycle
+    // console.log('hard calculation!!!');
+    return this.expTime - Date.now() > 0;
   }
 }
