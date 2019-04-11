@@ -2,12 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ChildComponent } from './components/child/child.component';
+import { ParentComponent } from './components/race/parent.component';
+import { PonyComponent } from './components/pony/pony.component';
+import { ImageComponent } from './components/image/image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChildComponent
+    ParentComponent,
+    PonyComponent,
+    ImageComponent
   ],
   imports: [
     BrowserModule
