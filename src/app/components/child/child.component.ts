@@ -1,19 +1,14 @@
-import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
-export class ChildComponent implements OnInit, AfterViewChecked {
+export class ChildComponent {
 
-  constructor() { }
-
-  ngOnInit() {
+  get staticData() {
+    console.log('angular is checking property');
+    return 'static';
   }
-
-  ngAfterViewChecked(): void {
-    console.log('checking child component');
-  }
-
 }
