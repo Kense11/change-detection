@@ -1,33 +1,21 @@
-import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
-import {ColorService} from '../../shared/services/color.service';
-import {Observable, Subscription} from 'rxjs';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {Pony} from '../../shared/models/pony.model';
 
 @Component({
   selector: 'app-pony',
   templateUrl: './pony.component.html',
   styleUrls: ['./pony.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PonyComponent implements OnInit, OnDestroy {
+export class PonyComponent {
 
-  color = 'green';
-  // color$: Observable<string>;
-  subscription: Subscription;
+  @Input() pony: Pony;
 
-  constructor(
-    private colorService: ColorService
-  ) { }
-
-  ngOnInit() {
-    this.subscription = this.colorService.get()
-      .subscribe(color => {
-        console.log('new color from observable:', color);
-        this.color = color;
-      });
-    // this.color$ = this.colorService.get();
+  check() {
+    console.log('pony component view checked');
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+  getPonyImageUrl() {
+    return `assets/images/pony-${this.pony.color}-running.gif`;
   }
 }

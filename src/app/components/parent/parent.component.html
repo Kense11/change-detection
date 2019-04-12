@@ -1,0 +1,6 @@
+<p>{{ check() }}</p>
+<div>
+  <app-pony *ngFor="let pony of ponies" [pony]="pony"></app-pony>
+</div>
+<button (click)="changeColor()">Change color</button>
+<!--<button (click)="0">Trigger event not related to pony and image components</button>-->
